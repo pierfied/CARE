@@ -1206,7 +1206,7 @@ class KeyValueSorter<T, RAJA::seq_exec> {
       /// @return whether keys are allocated
       ///////////////////////////////////////////////////////////////////////////
       bool keysAllocated() const {
-         return m_keys ;
+         return m_keys != nullptr;
       }
 
       ///////////////////////////////////////////////////////////////////////////
@@ -1218,7 +1218,7 @@ class KeyValueSorter<T, RAJA::seq_exec> {
       /// @return whether values are allocated
       ///////////////////////////////////////////////////////////////////////////
       bool valuesAllocated() const {
-         return m_values ;
+         return m_values != nullptr;
       }
 
       ///////////////////////////////////////////////////////////////////////////
