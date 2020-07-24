@@ -80,8 +80,8 @@ namespace care {
          RAJA::forall<RAJA::seq_exec>(RAJA::RangeSegment(start, end), body);
 #else
 #if defined(RAJA_ENABLE_APOLLO)
-         Apollo::Region::nextFile = std::string(fileName);
-         Apollo::Region::nextLine = lineNumber;
+         Apollo::Region::nextFileName = std::string(fileName);
+         Apollo::Region::nextLineNumber = lineNumber;
 #endif
          RAJA::forall<ExecutionPolicy>(RAJA::RangeSegment(start, end), body);
 #endif
