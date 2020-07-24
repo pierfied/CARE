@@ -24,6 +24,10 @@
 // other library headers
 #include "chai/ArrayManager.hpp"
 
+#if defined(RAJA_ENABLE_APOLLO)
+#include "apollo/Region.h"
+#endif
+
 namespace care {
    template <typename T>
    struct ExecutionPolicyToSpace {
@@ -75,6 +79,10 @@ namespace care {
 #if CARE_ENABLE_GPU_SIMULATION_MODE
          RAJA::forall<RAJA::seq_exec>(RAJA::RangeSegment(start, end), body);
 #else
+#if defined(RAJA_ENABLE_APOLLO)
+         Apollo::Region::nextFile = std::string(fileName);
+         Apollo::Region::nextLine = lineNumber;
+#endif
          RAJA::forall<ExecutionPolicy>(RAJA::RangeSegment(start, end), body);
 #endif
 

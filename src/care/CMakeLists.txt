@@ -87,6 +87,10 @@ if (ENABLE_HIP)
   list(APPEND care_depends hip)
 endif ()
 
+if (ENABLE_APOLLO)
+    list(APPEND care_depends apollo)
+endif()
+
 blt_add_library(NAME care
                 SOURCES ${care_sources}
                 HEADERS ${care_headers}

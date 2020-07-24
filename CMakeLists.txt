@@ -18,6 +18,7 @@ option(ENABLE_MPI "Build MPI support" OFF)
 option(ENABLE_CUDA "Build CUDA support" OFF)
 option(ENABLE_OPENMP "Build OpenMP support" OFF)
 option(ENABLE_HIP "Build HIP support" OFF)
+option(ENABLE_APOLLO "Build Apollo support" OFF)
 
 # Advanced configuration options
 # TODO: If these are disabled, the code will not compile or run correctly.

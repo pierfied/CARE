@@ -261,3 +261,19 @@ else()
     set(CARE_HAVE_LLNL_GLOBALID "0" CACHE STRING "")
 endif()
 
+################################
+# Apollo
+################################
+if (ENABLE_APOLLO)
+   find_package(APOLLO REQUIRED)
+   if(APOLLO_FOUND)
+      blt_register_library(
+              NAME apollo
+              INCLUDES ${APOLLO_INCLUDE_DIRS}
+              LIBRARIES ${APOLLO_LIBRARY})
+      message(STATUS "APOLLO enabled")
+   else()
+      message(WARNING "APOLLO NOT FOUND")
+   endif(APOLLO_FOUND)
+endif()
+
